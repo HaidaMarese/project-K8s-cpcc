@@ -1,0 +1,53 @@
+# ghost1 ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ghost-ingress
+  namespace: ghost1
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - ghost1.cpcc.net
+      secretName: ghost1.cpcc.net-tls
+  rules:
+    - host: ghost1.cpcc.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ghost1
+                port:
+                  number: 80
+
+# ghost2 ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ghost-ingress
+  namespace: ghost2
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - ghost2.cpcc.net
+      secretName: ghost2.cpcc.net-tls
+  rules:
+    - host: ghost2.cpcc.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ghost2
+                port:
+                  number: 80

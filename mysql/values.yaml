@@ -1,0 +1,10 @@
+auth:
+  rootPassword: rootpass
+  database: ghost
+  username: ghost
+  password: ghostpass
+
+primary:
+  persistence:
+    enabled: true
+    size: 8Gi

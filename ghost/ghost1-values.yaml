@@ -1,0 +1,29 @@
+image:
+  repository: ghost
+  tag: 5.129.1
+
+ghostUsername: user 
+ghostPassword: ghostpass
+ghostEmail: user@cpcc.net
+ghostBlogTitle: Ghost Blog 1
+
+externalDatabase:
+  host: mysql.mysql.svc.cluster.local
+  user: ghost
+  password: ghostpass
+  database: ghost
+
+persistence:
+  enabled: true
+  size: 5Gi
+
+ingress:
+  enabled: true
+  hostname: ghost1.cpcc.net
+  tls: true
+  annotations:
+    cert-manager.io/cluster-issuer: cpcc-net-issuer
+  tlsSecret: star-cpcc-net
+
+  annotations:
+  cert-manager.io/cluster-issuer: letsencrypt-prod

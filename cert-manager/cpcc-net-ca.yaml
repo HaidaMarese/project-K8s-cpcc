@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cpcc-net-ca
+  namespace: cert-manager
+spec:
+  isCA: true
+  duration: 8760h
+  secretName: cpcc-net-ca
+  commonName: cpcc.net
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer

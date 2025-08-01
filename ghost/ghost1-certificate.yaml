@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ghost1-cert
+  namespace: ghost-1
+spec:
+  secretName: star-cpcc-net
+  issuerRef:
+    name: cpcc-net-issuer
+    kind: ClusterIssuer
+  commonName: ghost1.cpcc.net
+  dnsNames:
+    - ghost1.cpcc.net

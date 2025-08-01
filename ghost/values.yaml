@@ -1,0 +1,22 @@
+ghostUsername: user
+ghostPassword: ghostpass
+ghostEmail: user@cpcc.net
+ghostBlogTitle: My Ghost Blog
+
+externalDatabase:
+  host: mysql.mysql.svc.cluster.local
+  user: ghost
+  password: ghostpass
+  database: ghost
+
+persistence:
+  enabled: true
+  size: 5Gi
+
+ingress:
+  enabled: true
+  hostname: ghost.example.com
+  tls: true
+  annotations:
+    cert-manager.io/cluster-issuer: cpcc-net-issuer
+  tlsSecret: star-cpcc-net
