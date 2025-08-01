@@ -1,0 +1,36 @@
+# Ignore Helm chart lock and cache
+charts/
+*.tgz
+
+# Ignore cert-manager secrets and certs
+*.crt
+*.key
+*.pem
+*.csr
+*.der
+*.srl
+*.p12
+
+# Ignore kube configs (if any)
+.kube/
+*.kubeconfig
+
+# Ignore Helm release cache
+.helm/
+.helmignore
+
+# Ignore VSCode and IDE settings
+.vscode/
+.idea/
+
+# Ignore node_modules if you used any frontend tools
+node_modules/
+
+# Mac/Windows system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.log
+*.tmp
+*.bak
