@@ -1,0 +1,45 @@
+# Project 1 - Kubernetes Ghost Blog Deployment (CPCC)
+
+This project demonstrates deploying two Ghost blog instances (`ghost1.cpcc.net` and `ghost2.cpcc.net`) using Kubernetes, Helm, and cert-manager for TLS with nginx Ingress.
+
+##  Tools Used
+- Kubernetes
+- Helm
+- cert-manager
+- nginx Ingress Controller
+- MySQL (external DB)
+- TLS via cert-manager
+
+##  Folder Structure
+- `ghost/` – Helm chart values for Ghost 1 & 2
+- `mysql/` – Values for external MySQL (if customized)
+- `cert-manager/` – TLS ClusterIssuer, Certificate YAMLs
+- `nginx/` – Optional ingress annotations or config
+- `screenshots/` – Proof of deployments and UI
+
+##  Hosts
+- `ghost1.cpcc.net` – Blog 1 with persistent volume, Ingress, cert
+- `ghost2.cpcc.net` – Blog 2 with persistent volume, Ingress, cert
+
+## Commands Summary
+
+```bash
+# Deploy MySQL
+helm install ghost-mysql bitnami/mysql -n mysql -f mysql-values.yaml
+
+# Install cert-manager
+kubectl apply -f cert-manager/clusterissuer.yaml
+
+# Deploy Ghost 1
+helm install ghost1 ./ghost -n ghost-1 --create-namespace -f ghost1-values.yaml
+
+# Deploy Ghost 2
+helm install ghost2 ./ghost -n ghost-2 --create-namespace -f ghost2-values.yaml
+
+## TLS
+
+Certificate: star-cpcc-net
+
+Issuer: cpcc-net-issuer
+
+Auto-renew: Enabled via cert-manager
