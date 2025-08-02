@@ -15,7 +15,7 @@ This project demonstrates deploying two Ghost blog instances (`ghost1.cpcc.net` 
 - `mysql/` – Values for external MySQL (if customized)
 - `cert-manager/` – TLS ClusterIssuer, Certificate YAMLs
 - `nginx/` – Optional ingress annotations or config
-- `screenshots/` – Proof of deployments and UI
+
 
 ##  Hosts
 - `ghost1.cpcc.net` – Blog 1 with persistent volume, Ingress, cert
